@@ -2,14 +2,7 @@
 
 ## Setup
 
-1. Install the metric server
-```
-kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
-kubectl patch deployment metrics-server -n kube-system --patch "$(cat metric-server-patch.yaml)"
-kubectl patch deployment metrics-server -n kube-system --type="json" --patch-file metric-server-patch.json
-```
-
-2. Setup cilium
+### Setup cilium
 ```
 kubectl cluster-info --context kind-kind
 helm repo add cilium https://helm.cilium.io/
@@ -21,6 +14,18 @@ helm install cilium cilium/cilium --version 1.17.6 \
    --set ipam.mode=kubernetes
 
 ```
+
+## Troubleshooting
+
+### `error: Metrics API not available`
+
+```
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+kubectl patch deployment metrics-server -n kube-system --type="json" --patch-file metric-server-patch.json
+```
+
+> https://medium.com/@cloudspinx/fix-error-metrics-api-not-available-in-kubernetes-aa10766e1c2f
+
 # References
 - https://github.com/kubernetes-sigs/cloud-provider-kind?tab=readme-ov-file#allowing-load-balancers-access-to-control-plane-nodes
 - https://medium.com/devops-techable/ditch-docker-desktop-set-up-kubernetes-on-macos-using-podman-kind-89eb39c3bd5b
