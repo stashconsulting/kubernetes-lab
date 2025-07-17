@@ -1,0 +1,10 @@
+resources:
+  - namespaces.yaml
+  - https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+  - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+patches:
+  - path: ./patches/metric-server-patch.json
+    target:
+      kind: Deployment
+      name: metrics-server
+      namespace: kube-system

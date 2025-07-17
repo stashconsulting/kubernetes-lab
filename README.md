@@ -2,7 +2,30 @@
 
 ## Setup
 
-### Setup cilium
+
+### Tools
+
+- helm
+- argocd
+- metric server
+
+### Instalation
+
+
+*Setup ArgoCD*
+
+- Install argo cli
+
+`sudo port install argocd`
+
+- Install argo
+```
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+```
+
+*Setup cilium*
 ```
 kubectl cluster-info --context kind-kind
 helm repo add cilium https://helm.cilium.io/
@@ -21,10 +44,18 @@ helm install cilium cilium/cilium --version 1.17.6 \
 
 ```
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
-kubectl patch deployment metrics-server -n kube-system --type="json" --patch-file metric-server-patch.json
+kubectl patch deployment metrics-server -n kube-system --type="json" --patch-file patches/metric-server-patch.json
 ```
 
+or use the kustomize:
+https://github.com/kubernetes-sigs/kustomize/issues/5049#issuecomment-1433601950
+
+`kubectl apply -k .`
+
 > https://medium.com/@cloudspinx/fix-error-metrics-api-not-available-in-kubernetes-aa10766e1c2f
+
+### Argo not registering clusters:
+https://argo-cd.readthedocs.io/en/stable/developer-guide/running-locally/
 
 # References
 - https://github.com/kubernetes-sigs/cloud-provider-kind?tab=readme-ov-file#allowing-load-balancers-access-to-control-plane-nodes
