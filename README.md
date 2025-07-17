@@ -11,6 +11,7 @@
 
 ### Instalation
 
+> if you want to skip the step by step setup just run: `kubectl apply -k .`
 
 *Setup ArgoCD*
 
