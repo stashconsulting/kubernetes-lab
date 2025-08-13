@@ -1,5 +1,7 @@
 resources:
   - namespaces.yaml
+  - ./secrets/
+  - backstage/
   - https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
   - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 patches:

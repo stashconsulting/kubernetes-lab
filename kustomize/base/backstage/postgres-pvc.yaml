@@ -1,0 +1,33 @@
+# kubernetes/postgres-storage.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: postgres-storage
+  namespace: backstage
+  labels:
+    type: local
+spec:
+  storageClassName: ""
+  capacity:
+    storage: 2G
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  csi:
+    driver: hostpath.csi.k8s.io
+    volumeHandle: postgres-storage
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-storage-claim
+  namespace: backstage
+spec:
+  storageClassName: standard
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2G
+---

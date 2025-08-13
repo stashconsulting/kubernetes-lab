@@ -8,10 +8,14 @@
 - helm
 - argocd
 - metric server
+- backstage
 
 ### Instalation
 
-> if you want to skip the step by step setup just run: `kubectl apply -k .`
+
+> if you want to skip the step by step setup just run: <br>
+> `sudo cloud-provider-kind -enable-lb-port-mapping`<br>
+> `kubectl apply -k .`
 
 *Setup ArgoCD*
 
@@ -25,6 +29,10 @@ kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
 ```
+
+- Install backstage
+
+[Instalation steps](https://backstage.io/docs/deployment/k8s)
 
 *Setup cilium*
 ```
