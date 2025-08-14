@@ -15,7 +15,7 @@ spec:
     spec: 
       containers:
         - name: backstage
-          image: registry:5000/backstage:v2
+          image: registry:5000/backstage:latest
           imagePullPolicy: Always
           ports:
             - name: http
