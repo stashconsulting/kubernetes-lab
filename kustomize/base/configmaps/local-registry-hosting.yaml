@@ -1,0 +1,10 @@
+# Local registry hosting configuration for Kubernetes
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: local-registry-hosting
+  namespace: kube-public
+data:
+  localRegistryHosting.v1: |
+    host: "registry:5000"
+    help: "https://kind.sigs.k8s.io/docs/user/local-registry/"
