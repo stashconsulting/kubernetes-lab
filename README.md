@@ -12,6 +12,8 @@
 
 ### Instalation
 
+setup a local registry:
+https://hackernoon.com/kubernetes-cluster-setup-with-a-local-registry-and-ingress-in-docker-using-kind
 
 > if you want to skip the step by step setup just run: <br>
 > `sudo cloud-provider-kind -enable-lb-port-mapping`<br>
@@ -72,3 +74,6 @@ https://argo-cd.readthedocs.io/en/stable/developer-guide/running-locally/
 - https://docs.cilium.io/en/stable/installation/kind/
 - https://github.com/kubernetes-sigs/metrics-server
 - https://gist.github.com/sanketsudake/a089e691286bf2189bfedf295222bd43
+- https://gist.github.com/jefferyb/75f9f41cf14e6e4feae30d65584af108
+- https://github.com/containers/image/issues/1583#issuecomment-1163287479
+- https://medium.com/@andy.f.mcbrearty/running-k8s-locally-on-an-m1-macbook-with-colima-kind-1322afa4bfee

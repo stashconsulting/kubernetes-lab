@@ -2,3 +2,4 @@
 # It is used by Git to determine which files and directories to ignore.
 # Files and directories listed here will not be tracked by Git.
 .env.secret
+registry/**

@@ -1,5 +1,13 @@
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
+# name: kubernetes-lab
+containerdConfigPatches:
+- |-
+  [plugins."io.containerd.grpc.v1.cri"."registry:5000"]
+    insecure_skip_verify = true
+    ca_file = ""
+    cert_file = ""
+    key_file = ""
 nodes:
 - role: control-plane
   kubeadmConfigPatches:
