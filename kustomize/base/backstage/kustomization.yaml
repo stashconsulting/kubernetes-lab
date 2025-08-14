@@ -4,4 +4,5 @@ resources:
   - postgres-pvc.yaml
   - postgres-deployment.yaml
   - namespaces.yaml
+  - backstage-deployment.yaml
 ---
