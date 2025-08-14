@@ -5,4 +5,5 @@ resources:
   - postgres-deployment.yaml
   - namespaces.yaml
   - backstage-deployment.yaml
+  - backstage-service.yaml
 ---
